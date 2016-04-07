@@ -6,16 +6,71 @@
     <navigation-rule>
         <from-view-id>/index.xhtml</from-view-id>
         <navigation-case>
-            <from-outcome>login</from-outcome>
+            <from-outcome>register</from-outcome>
             <to-view-id>/register.xhtml</to-view-id>
             <redirect />
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>login</from-outcome>
+            <to-view-id>/login.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/login.xhtml</from-view-id>
         <navigation-case>
-            <from-outcome>case1</from-outcome>
+            <from-outcome>register</from-outcome>
             <to-view-id>/register.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>hotels</from-outcome>
+            <to-view-id>/hotels-list.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/register.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>login</from-outcome>
+            <to-view-id>/login.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/hotels-list.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>details</from-outcome>
+            <to-view-id>/hotel-details.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>profile</from-outcome>
+            <to-view-id>/myprofile.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/hotel-details.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>reservation</from-outcome>
+            <to-view-id>/hotel-reservation.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>profile</from-outcome>
+            <to-view-id>/myprofile.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/hotel-reservation.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>profile</from-outcome>
+            <to-view-id>/myprofile.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/myprofile.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>reservations</from-outcome>
+            <to-view-id>/reservations-list.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>hotels</from-outcome>
+            <to-view-id>/hotels-list.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 </faces-config>
