@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
     
     <body>
         
@@ -25,7 +26,16 @@
                 <h5>Can you guess it?</h5>
 
                 <h:form>
-                    <h:inputText size="2" maxlength="2" value="#{UserNumberBean.userNumber}" />
+                    <label>Day</label>
+                    <h:inputText size="2" maxlength="2" value="#{PersonBean.day}" a:placeholder="Day"  />
+                    <br />
+                    
+                    <label>Month</label>
+                    <h:inputText size="2" maxlength="2" value="#{PersonBean.month}" a:placeholder="Month"  />
+                    <br />
+                    
+                    <label>Year</label>
+                    <h:inputText size="4" maxlength="4" value="#{PersonBean.year}" a:placeholder="Year"  />
                     <h:commandButton id="submit" value="submit" action="response" />
                 </h:form>
             </ui:define>
