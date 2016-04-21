@@ -31,7 +31,24 @@
             </h:panelGrid>  
 
             <p:commandButton value="Save" actionListener="#{growlView.saveMessage}" update="growl" />  
-        </p:panel> 
+        </p:panel>
+        </h:form> 
+        
+        <h:form id="form">
+    <p:growl id="msgs" showDetail="true" />
+ 
+    <h:panelGrid columns="2" cellpadding="5">
+        <p:outputLabel for="dateFrom" value="Date from:" />
+        <p:calendar id="dateFrom" value="#{calendarView.dateFrom}">
+            <p:ajax event="dateSelect" update="dateTo" />
+        </p:calendar>
+    </h:panelGrid>
+    
+    <h:panelGrid columns="2" cellpadding="5">
+        <p:outputLabel for="dateTo" value="Date to:" />
+        <p:calendar id="dateTo" value="#{calendarView.dateTo}" mindate="#{calendarView.dateFrom}" />
+    </h:panelGrid>
+ 
 </h:form> 
     </h:body>
 </html>
