@@ -19,6 +19,20 @@
         <p:galleria value="#{imagesView.images}" var="image" panelWidth="500" panelHeight="313" showCaption="true">
             <p:graphicImage name="#{image}" library="images" alt="Image Description for #{image}" title="#{image}"/>
         </p:galleria>
+        
+        <h:form> 
+        
+        <p:growl id="growl" showDetail="true" sticky="true" />  
+
+        <p:panel header="Growl">  
+            <h:panelGrid columns="2" cellpadding="5">  
+                <p:outputLabel for="msg" value="Message:" />   
+                <p:inputText id="msg" value="#{growlView.message}" required="true" />  
+            </h:panelGrid>  
+
+            <p:commandButton value="Save" actionListener="#{growlView.saveMessage}" update="growl" />  
+        </p:panel> 
+</h:form> 
     </h:body>
 </html>
 
