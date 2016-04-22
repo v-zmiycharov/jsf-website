@@ -13,29 +13,30 @@
     </h:head>
 
     <h:body>
-        
-        <div id="top" class="top">
-            <h:form>  
-                <p:growl id="messages"/>
 
-                <p:menubar>
-                    <p:menuitem value="Начало" action="index" />
-                    <p:menuitem value="Цени" action="prices" />
-                    <p:menuitem value="Резервация" action="reservations" />
-                    <p:menuitem value="Контакти" action="contacts" />
-                    <p:menuitem value="Галерия" action="gallery" />
-                    <p:menuitem value="Настаняване" action="accomodation" />
-                    
-                    <p:menuitem value="Традиции" action="traditions" />
-                    <p:menuitem value="Времето" action="weather" />
-                </p:menubar>
-            </h:form>
+        <div id="main-wrapper">
+            <div id="top" class="top">
+                <h:form>  
+                    <p:growl id="messages"/>
+
+                    <p:menubar>
+                        <p:menuitem value="Начало" action="index" />
+                        <p:menuitem value="Цени" action="prices" />
+                        <p:menuitem value="Резервация" action="reservations" />
+                        <p:menuitem value="Контакти" action="contacts" />
+                        <p:menuitem value="Галерия" action="gallery" />
+                        <p:menuitem value="Настаняване" action="accomodation" />
+
+                        <p:menuitem value="Традиции" action="traditions" />
+                        <p:menuitem value="Времето" action="weather" />
+                    </p:menubar>
+                </h:form>
+            </div>
+
+            <div id="content" class="center_content">
+                <ui:insert name="content">Layout content</ui:insert>
+            </div>
         </div>
-
-        <div id="content" class="center_content">
-            <ui:insert name="content">Layout content</ui:insert>
-        </div>
-
     </h:body>
 
 </html>
