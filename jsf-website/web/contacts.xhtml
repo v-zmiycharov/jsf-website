@@ -1,13 +1,52 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <body>
 
         <ui:composition template="./layout.xhtml">
             <ui:define name="content">
-                Контакти
+                <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript" ></script>
+                
+                <div style="float: left;">
+                    <p:panelGrid columns="2">
+                        <f:facet name="header">
+                            <p:graphicImage name="main.jpg" library="images" width="350" />
+                        </f:facet>
+
+                        <h:outputText value="Област:" />
+                        <h:outputText value="Пазарджик" />
+
+                        <h:outputText value="Община:" />
+                        <h:outputText value="Брацигово" />
+
+                        <h:outputText value="Населено място:" />
+                        <h:outputText value="с. Равногор" />
+
+                        <h:outputText value="Пощенски код:" />
+                        <h:outputText value="4582" />
+
+                        <h:outputText value="Адрес:" />
+                        <h:outputText value="ул. „Втора” №35" />
+
+                        <h:outputText value="Телефони:" />
+                        <h:outputText value="0888 261 346; 0888 261 347" />
+
+                        <h:outputText value="E-mail:" />
+                        <h:outputText value="boryka@abv.bg" />
+                    </p:panelGrid>
+                </div>
+                
+                <div style="float: left; width:500px; margin-left: 30px;">
+                    <p:gmap center="41.9521894,24.3687573" zoom="13" type="ROADMAP" style="width:100%;height:420px;margin-left:20px;" model="#{markersView.simpleModel}" />
+                </div>
+                
+                <div style="clear: both;"></div>
+                
             </ui:define>
         </ui:composition>
     </body>
