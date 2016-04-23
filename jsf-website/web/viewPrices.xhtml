@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui">
+     
+    <h:head>
+        <title>Цени</title>
+        <style type="text/css">
+            .ui-widget {
+                font-size: 90%;
+            }
+        </style>
+    </h:head>
+     
+    <h:body>
+        <i id="customheader" class="fa fa-fw fa-car" style="display:none"></i>
+ 
+        <p:dataTable var="price" value="#{pricesDataView.prices}">
+            <p:column headerText="Вид стая">
+                <h:outputText value="#{price.roomType}" />
+            </p:column>
+ 
+            <p:column headerText="Цена на стая нощувка +закуска +СПА">
+                <h:outputText value="#{price.roomSpaBreakfast}" />
+            </p:column>
+ 
+            <p:column headerText="Цена на стая нощувка +SPA">
+                <h:outputText value="#{price.roomSpa}" />
+            </p:column>
+ 
+            <p:column headerText="Цена на стая нощувка +закуска">
+                <h:outputText value="#{price.roomBreakfast}" />
+            </p:column>
+            
+            <p:column headerText="Цена на стая нощувка">
+                <h:outputText value="#{price.room}" />
+            </p:column>
+        </p:dataTable>
+    </h:body>
+     
+</html>
