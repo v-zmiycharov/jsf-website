@@ -54,3 +54,31 @@ a:link:hover, a:visited:hover  {
     margin-top: -10px;
     margin-bottom: 10px;
 }
+
+.reservation-form {
+    margin-top: 50px;
+}
+
+.reservation-form .input-row {
+    margin-bottom: 10px;
+}
+
+.reservation-form .input-row label {
+    width: 180px;
+    text-align: right;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+textarea {
+    vertical-align: text-top;
+}
+
+span.required-span {
+    color: red;
+    font-weight: bold;
+}
+
+.ui-messages-error, .ui-message-error {
+    display: inline-block;
+}

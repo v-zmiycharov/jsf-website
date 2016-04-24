@@ -2,7 +2,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <body>
 
@@ -13,6 +15,84 @@
                     <p:menuitem value="Преглед" />
                     <p:menuitem value="Потвърждение" />
                 </p:steps>
+
+                <div style="clear: both;"></div>
+
+                <div class="reservation-form">
+                    <h:form>
+                        <div class="input-row">
+                            <label>Име <span class="required-span">*</span>:</label>
+                            <p:inputText id="name" required="true" requiredMessage="Полето е задължително" value="#{reservationView.name}"  />
+                            <p:message for="name" />
+                        </div>
+
+                        <div class="input-row">
+                            <label>Телефон <span class="required-span">*</span>:</label>
+                            <p:inputText id="phone" required="true" requiredMessage="Полето е задължително" value="#{reservationView.phone}"  />
+                            <p:message for="phone" />
+                        </div>
+
+                        <div class="input-row">
+                            <label>Електронна поща <span class="required-span">*</span>:</label>
+                            <p:inputText id="email" required="true" requiredMessage="Полето е задължително" value="#{reservationView.email}"  />
+                            <p:message for="email" />
+                        </div>
+
+                        <div class="input-row">
+                            <label>Дата на пристигане <span class="required-span">*</span>:</label>
+                            <p:calendar required="true" requiredMessage="Полето е задължително" id="dateFrom" value="#{reservationView.dateFrom}" pattern="dd.MM.yyyy">
+                                <p:ajax event="dateSelect" update="dateTo" />
+                            </p:calendar>
+                            <p:message for="dateFrom" />
+                        </div>
+
+                        <div class="input-row">
+                            <label>Дата на заминаване <span class="required-span">*</span>:</label>
+                            <p:calendar required="true" requiredMessage="Полето е задължително" id="dateTo" value="#{reservationView.dateTo}" pattern="dd.MM.yyyy" mindate="#{reservationView.dateFrom}" />
+                            <p:message for="dateTo" />
+                        </div>
+                        
+                        <div class="input-row">
+                            <label>Вид стая <span class="required-span">*</span>:</label>
+                            <p:selectOneButton value="#{reservationView.roomKind}">
+                                <f:selectItem itemLabel="Двойна стая" itemValue="Двойна стая" />
+                                <f:selectItem itemLabel="Мансардна стая" itemValue="Мансардна стая" />
+                                <f:selectItem itemLabel="Апартамент" itemValue="Апартамент" />
+                            </p:selectOneButton>
+                        </div>
+                        
+                        <div class="input-row">
+                            <label>Брой възрастни <span class="required-span">*</span>:</label>
+                            <p:spinner value="#{reservationView.adultsCount}" min="1" max="3" />
+                        </div>
+                        
+                        <div class="input-row">
+                            <label>Брой деца <span class="required-span">*</span>:</label>
+                            <p:spinner value="#{reservationView.childrenCount}" min="0" max="2" />
+                        </div>
+                        
+                        <div class="input-row">
+                            <label>Закуска <span class="required-span">*</span>:</label>
+                            <p:selectBooleanButton value="#{reservationView.hasBreakfast}" onLabel="Да" offLabel="Не" style="width:60px" />
+                        </div>
+                        
+                        <div class="input-row">
+                            <label>СПА <span class="required-span">*</span>:</label>
+                            <p:selectBooleanButton value="#{reservationView.hasSPA}" onLabel="Да" offLabel="Не" style="width:60px" />
+                        </div>
+                        
+                        <div class="input-row">
+                            <label>Допълнително описание:</label>
+                            <p:inputTextarea rows="2" value="#{reservationView.additionalInformation}" />
+                        </div>
+                        
+                        <div class="input-row">
+                            <label>&nbsp;</label>
+                            
+                            <p:commandButton validateClient="true" ajax="false" value="Продължи" process="@form" action="#{reservationView.preview}" />
+                        </div>
+                    </h:form>
+                </div>
             </ui:define>
         </ui:composition>
     </body>

@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./layout.xhtml">
+            <ui:define name="content">
+                <p:steps activeIndex="1" styleClass="custom" readonly="true">
+                    <p:menuitem value="Попълване на данни" />
+                    <p:menuitem value="Преглед" />
+                    <p:menuitem value="Потвърждение" />
+                </p:steps>
+
+                <div style="clear: both;"></div>
+
+                <div class="reservation-form">
+                    <h:form>
+                        <div class="input-row">
+                            <label>Име:</label>
+                            <h:outputText id="name" value="#{reservationView.name}"  />
+                        </div>
+
+                        <div class="input-row">
+                            <label>Телефон:</label>
+                            <h:outputText id="phone" value="#{reservationView.phone}"  />
+                        </div>
+
+                        <div class="input-row">
+                            <label>Електронна поща:</label>
+                            <h:outputText id="email" value="#{reservationView.email}"  />
+                        </div>
+
+                        <div class="input-row">
+                            <label>Дата на пристигане:</label>
+                            <h:outputText value="#{reservationView.dateFrom}">
+                                <f:convertDateTime pattern="dd.MM.yyyy" />
+                            </h:outputText>
+                        </div>
+
+                        <div class="input-row">
+                            <label>Дата на заминаване:</label>
+                            <h:outputText value="#{reservationView.dateTo}">
+                                <f:convertDateTime pattern="dd.MM.yyyy" />
+                            </h:outputText>
+                        </div>
+
+                        <div class="input-row">
+                            <label>Вид стая:</label>
+                            <h:outputText value="#{reservationView.roomKind}"  />
+                        </div>
+
+                        <div class="input-row">
+                            <label>Брой възрастни:</label>
+                            <h:outputText value="#{reservationView.adultsCount}"  />
+                        </div>
+
+                        <div class="input-row">
+                            <label>Брой деца:</label>
+                            <h:outputText value="#{reservationView.childrenCount}"  />
+                        </div>
+
+                        <div class="input-row">
+                            <label>Закуска:</label>
+                            <h:outputText value="#{reservationView.hasBreakfast ? 'Да' : 'Не'}"  />
+                        </div>
+
+                        <div class="input-row">
+                            <label>СПА:</label>
+                            <h:outputText value="#{reservationView.hasSPA ? 'Да' : 'Не'}"  />
+                        </div>
+
+                        <div class="input-row">
+                            <label>Допълнително описание:</label>
+                            <h:outputText value="#{reservationView.additionalInformation}"  />
+                        </div>
+
+                        <div class="input-row">
+                            <label>&nbsp;</label>
+
+                            <p:commandButton value="Потвърди" action="#{reservationView.finish}">
+                                <p:confirm header="Потвърждение" message="Сигурни ли сте, че искате да извършите резервацията?" icon="ui-icon-alert" />
+                            </p:commandButton>
+
+                            <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                                <p:commandButton value="Да" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                                <p:commandButton value="Не" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                            </p:confirmDialog>
+                        </div>
+                    </h:form>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>
