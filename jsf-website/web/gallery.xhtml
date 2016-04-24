@@ -1,13 +1,53 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
 
     <body>
 
         <ui:composition template="./layout.xhtml">
             <ui:define name="content">
-                Галерия
+                <h:form id="form">
+                    <p:tabView>
+                        <p:tab title="Хотелът">
+                            <h:panelGrid>
+                                <p:galleria value="#{galleryView.hotelImages}" var="image" panelWidth="750" panelHeight="450" showCaption="false">
+                                    <p:graphicImage name="images/gallery/#{image}" />
+                                </p:galleria>
+                            </h:panelGrid>
+                        </p:tab>
+                        <p:tab title="Стаи">
+                            <h:panelGrid>
+                                <p:galleria value="#{galleryView.roomImages}" var="image" panelWidth="750" panelHeight="450" showCaption="false">
+                                    <p:graphicImage name="images/gallery/#{image}" />
+                                </p:galleria>
+                            </h:panelGrid>
+                        </p:tab>
+                        <p:tab title="Удобства">
+                            <h:panelGrid>
+                                <p:galleria value="#{galleryView.facilityImages}" var="image" panelWidth="750" panelHeight="450" showCaption="false">
+                                    <p:graphicImage name="images/gallery/#{image}" />
+                                </p:galleria>
+                            </h:panelGrid>
+                        </p:tab>
+                        <p:tab title="Природа">
+                            <h:panelGrid>
+                                <p:galleria value="#{galleryView.natureImages}" var="image" panelWidth="750" panelHeight="450" showCaption="false">
+                                    <p:graphicImage name="images/gallery/#{image}" />
+                                </p:galleria>
+                            </h:panelGrid>
+                        </p:tab>
+                        <p:tab title="Забавления">
+                            <h:panelGrid>
+                                <p:galleria value="#{galleryView.funImages}" var="image" panelWidth="750" panelHeight="450" showCaption="false">
+                                    <p:graphicImage name="images/gallery/#{image}" />
+                                </p:galleria>
+                            </h:panelGrid>
+                        </p:tab>
+                    </p:tabView>
+                </h:form>
             </ui:define>
         </ui:composition>
     </body>
